@@ -1,4 +1,5 @@
 <?php
+
 namespace LicenseAdvisor;
 
 class LicenseManager
@@ -17,9 +18,8 @@ class LicenseManager
     {
         foreach (static::licenses() as $license) {
             if ($license::identifier() === $identifier) {
-                return new $license;
+                return new $license();
             }
         }
-        return null;
     }
 }

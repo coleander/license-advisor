@@ -1,15 +1,15 @@
 <?php
+
 namespace LicenseAdvisor\Abstracts;
 
 use LicenseAdvisor\Contracts\License as ILicense;
 
 /**
- * An abstraction of a license
+ * An abstraction of a license.
  */
 abstract class License implements ILicense
 {
     private static $initialized = false;
-
 
     final public function compare(ILicense $license)
     {

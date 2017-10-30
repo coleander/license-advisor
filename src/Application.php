@@ -1,6 +1,6 @@
 <?php
-namespace LicenseAdvisor;
 
+namespace LicenseAdvisor;
 
 use Symfony\Component\Console\Application as BaseApplication;
 
@@ -18,7 +18,7 @@ class Application extends BaseApplication
     public function __construct()
     {
         parent::__construct('License Advisor', self::VERSION);
-        foreach($this->commands as $class){
+        foreach ($this->commands as $class) {
             $this->add(new $class());
         }
     }

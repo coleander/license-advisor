@@ -1,10 +1,11 @@
 <?php
+
 namespace LicenseAdvisor\Licenses;
 
 use LicenseAdvisor\Abstracts\License;
 
 /**
- * GPLv3
+ * GPLv3.
  */
 class GPL3 extends License
 {
@@ -18,18 +19,22 @@ class GPL3 extends License
     {
         return true;
     }
+
     public static function allowsDistribution():bool
     {
         return true;
     }
+
     public static function allowsDistributionOverNetwork():bool
     {
         return true;
     }
+
     public static function allowsModification():bool
     {
         return true;
     }
+
     public static function allowsPrivateUse():bool
     {
         return true;
@@ -40,14 +45,17 @@ class GPL3 extends License
     {
         return true;
     }
+
     public static function requiresStateChanges():bool
     {
         return true;
     }
+
     public static function requiresDisclosingSource():bool
     {
         return true;
     }
+
     public static function requriesSameLicense():bool
     {
         return true;
@@ -58,10 +66,12 @@ class GPL3 extends License
     {
         return true;
     }
+
     public static function limitsWarranty():bool
     {
         return true;
     }
+
     public static function limitsTrademarkUse():bool
     {
         return false;

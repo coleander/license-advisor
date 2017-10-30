@@ -1,10 +1,11 @@
 <?php
+
 namespace LicenseAdvisor\Licenses;
 
 use LicenseAdvisor\Abstracts\License;
 
 /**
- * Copyright
+ * Copyright.
  */
 class None extends License
 {
@@ -18,18 +19,22 @@ class None extends License
     {
         return true;
     }
+
     public static function allowsDistribution():bool
     {
         return true;
     }
+
     public static function allowsDistributionOverNetwork():bool
     {
         return true;
     }
+
     public static function allowsModification():bool
     {
         return true;
     }
+
     public static function allowsPrivateUse():bool
     {
         return true;
@@ -40,14 +45,17 @@ class None extends License
     {
         return false;
     }
+
     public static function requiresStateChanges():bool
     {
         return false;
     }
+
     public static function requiresDisclosingSource():bool
     {
         return false;
     }
+
     public static function requriesSameLicense():bool
     {
         return false;
@@ -58,10 +66,12 @@ class None extends License
     {
         return false;
     }
+
     public static function limitsWarranty():bool
     {
         return false;
     }
+
     public static function limitsTrademarkUse():bool
     {
         return false;

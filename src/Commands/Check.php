@@ -1,4 +1,5 @@
 <?php
+
 namespace LicenseAdvisor\Commands;
 
 use Composer\Factory as ComposerFactory;
@@ -33,8 +34,7 @@ final class Check extends Command
 
                 ]
             )
-            ->setDescription('Checks your depdendencies against your license.')
-        ;
+            ->setDescription('Checks your depdendencies against your license.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -43,37 +43,36 @@ final class Check extends Command
         $selectedLicense = LicenseManager::license($input->getOption('license'));
 
         if (is_null($selectedLicense)) {
-            $this->red($output, $input->getOption('license') . ' is an unsupported license.');
+            $this->red($output, $input->getOption('license').' is an unsupported license.');
+
             return;
         }
 
-        $output->writeln('Your license: ' . $selectedLicense::identifier());
-
+        $output->writeln('Your license: '.$selectedLicense::identifier());
 
         $hadErrors = false;
 
         foreach ($this->readLicenses() as $packageLicense => $packages) {
             $license = LicenseManager::license($packageLicense);
             if (is_null($license)) {
-                $this->yellow($output, 'Unknown License: ' . $packageLicense);
+                $this->yellow($output, 'Unknown License: '.$packageLicense);
                 continue;
             }
 
             $compare = $selectedLicense->compare($license);
             if (empty($compare)) {
-                $this->green($output, count($packages) . ' packages uses ' . $packageLicense . ', which is compatible with ' . $selectedLicense::identifier());
+                $this->green($output, count($packages).' packages uses '.$packageLicense.', which is compatible with '.$selectedLicense::identifier());
             } else {
                 $hadErrors = true;
-                $this->yellow($output, count($packages) . ' packages uses ' . $packageLicense . ', which is not compatible with ' . $selectedLicense::identifier());
+                $this->yellow($output, count($packages).' packages uses '.$packageLicense.', which is not compatible with '.$selectedLicense::identifier());
                 $this->red($output, 'Problems:');
                 foreach ($compare as $reason) {
-                    $this->red($output, ' * ' . $reason);
+                    $this->red($output, ' * '.$reason);
                 }
             }
 
             $output->writeln('');
         }
-
 
         exit($hadErrors ? 2 : 0);
     }
@@ -81,7 +80,7 @@ final class Check extends Command
     protected function readLicenses()
     {
         $factory = new ComposerFactory();
-        $composer = $factory->create(new NullIO);
+        $composer = $factory->create(new NullIO());
         $packages = $composer->getRepositoryManager()->getLocalRepository()->getPackages();
 
         $licenses = [];
