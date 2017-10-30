@@ -58,4 +58,9 @@ abstract class License implements ILicense
 
         return $reasons;
     }
+
+    public function __toString()
+    {
+        return $this->identifier();
+    }
 }

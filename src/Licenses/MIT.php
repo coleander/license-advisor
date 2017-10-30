@@ -1,5 +1,4 @@
 <?php
-
 namespace LicenseAdvisor\Licenses;
 
 use LicenseAdvisor\Abstracts\License;

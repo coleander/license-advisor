@@ -30,7 +30,7 @@ final class Check extends Command
             ->setName(self::COMMAND_NAME)
             ->setDefinition(
                 [
-                    new InputOption('license', 'l', InputOption::VALUE_REQUIRED, 'Your package license', 'None'),
+                    new InputOption('license', 'l', InputOption::VALUE_REQUIRED, 'Your package license', LicenseManager::default()),
 
                 ]
             )
@@ -61,17 +61,20 @@ final class Check extends Command
 
             $compare = $selectedLicense->compare($license);
             if (empty($compare)) {
-                $this->green($output, count($packages).' packages uses '.$packageLicense.', which is compatible with '.$selectedLicense::identifier());
+                $this->green($output, '✔ ' . $license);
             } else {
                 $hadErrors = true;
-                $this->yellow($output, count($packages).' packages uses '.$packageLicense.', which is not compatible with '.$selectedLicense::identifier());
+                $this->red($output, '✖ '. $license);
                 $this->red($output, 'Problems:');
                 foreach ($compare as $reason) {
-                    $this->red($output, ' * '.$reason);
+                    $this->red($output, ' - '.$reason);
+                }
+
+                $this->red($output, 'Packages using ' . $license . ': ');
+                foreach ($packages as $package) {
+                    $this->red($output, ' - '.$reason);
                 }
             }
-
-            $output->writeln('');
         }
 
         exit($hadErrors ? 2 : 0);

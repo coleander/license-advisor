@@ -4,75 +4,75 @@ namespace LicenseAdvisor\Licenses;
 use LicenseAdvisor\Abstracts\License;
 
 /**
- * None.
+ * Proprietary.
  */
-class None extends License
+class Proprietary extends License
 {
     public static function identifier():string
     {
-        return 'None';
+        return 'Proprietary';
     }
 
     //Permissions
     public static function allowsCommercialUse():bool
     {
-        return false;
+        return true;
     }
 
     public static function allowsDistribution():bool
     {
-        return false;
+        return true;
     }
 
     public static function allowsDistributionOverNetwork():bool
     {
-        return false;
+        return true;
     }
 
     public static function allowsModification():bool
     {
-        return false;
+        return true;
     }
 
     public static function allowsPrivateUse():bool
     {
-        return false;
+        return true;
     }
 
     //Conditions
     public static function requiresLicenseNotice():bool
     {
-        return false;
+        return true;
     }
 
     public static function requiresStateChanges():bool
     {
-        return false;
+        return true;
     }
 
     public static function requiresDisclosingSource():bool
     {
-        return false;
+        return true;
     }
 
     public static function requriesSameLicense():bool
     {
-        return false;
+        return true;
     }
 
     //Limitations
     public static function limitsLiability():bool
     {
-        return false;
+        return true;
     }
 
     public static function limitsWarranty():bool
     {
-        return false;
+        return true;
     }
 
     public static function limitsTrademarkUse():bool
     {
-        return false;
+        return true;
     }
 }
