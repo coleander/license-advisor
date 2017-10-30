@@ -4,13 +4,13 @@ namespace LicenseAdvisor\Licenses;
 use LicenseAdvisor\Abstracts\License;
 
 /**
- * Apache 2.0
+ * MIT
  */
-class Apache20 extends License
+class MIT extends License
 {
     public static function identifier():string
     {
-        return 'Apache-2.0';
+        return 'MIT';
     }
 
     //Permissions
@@ -42,7 +42,7 @@ class Apache20 extends License
     }
     public static function requiresStateChanges():bool
     {
-        return true;
+        return false;
     }
     public static function requiresDisclosingSource():bool
     {
@@ -64,6 +64,6 @@ class Apache20 extends License
     }
     public static function limitsTrademarkUse():bool
     {
-        return true;
+        return false;
     }
 }

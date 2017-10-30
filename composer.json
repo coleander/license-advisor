@@ -1,0 +1,25 @@
+{
+    "name": "license-advisor/license-advisor",
+    "description": "A PHP package to ensure that you comply with your dependencies.",
+    "keywords": ["package", "dependency", "license"],
+    "type": "library",
+    "license": "Apache 2.0",
+    "authors": [
+        {
+            "name": "Niclas Hedam",
+            "email": "niclas@frax.dk",
+            "homepage": "https://frax.dk"
+        }
+    ],
+    "require": {
+        "symfony/console": "^3.3",
+        "composer/composer": "^1.5"
+    },
+    "require-dev":{
+        "illuminate/support": "^5.5"
+    },
+    "autoload": {
+        "psr-4": { "LicenseAdvisor\\": "src/" }
+    },
+    "bin": ["license-advisor"]
+}

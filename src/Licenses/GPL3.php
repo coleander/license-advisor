@@ -6,11 +6,11 @@ use LicenseAdvisor\Abstracts\License;
 /**
  * Apache 2.0
  */
-class Apache20 extends License
+class GPL3 extends License
 {
     public static function identifier():string
     {
-        return 'Apache-2.0';
+        return 'GPL-3.0';
     }
 
     //Permissions
@@ -46,11 +46,11 @@ class Apache20 extends License
     }
     public static function requiresDisclosingSource():bool
     {
-        return false;
+        return true;
     }
     public static function requriesSameLicense():bool
     {
-        return false;
+        return true;
     }
 
     //Limitations
@@ -64,6 +64,6 @@ class Apache20 extends License
     }
     public static function limitsTrademarkUse():bool
     {
-        return true;
+        return false;
     }
 }

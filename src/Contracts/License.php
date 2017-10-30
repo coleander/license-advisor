@@ -6,23 +6,23 @@ namespace LicenseAdvisor\Contracts;
  */
 interface License
 {
-    public function identifier(): string;
+    public static function identifier(): string;
 
     //Permissions
-    public function allowsCommercialUse(): boolean;
-    public function allowsDistribution(): boolean;
-    public function allowsModification(): boolean;
-    public function allowsPrivateUse(): boolean;
-    public function allowsPatentUse(): boolean;
+    public static function allowsCommercialUse(): bool;
+    public static function allowsDistribution(): bool;
+    public static function allowsDistributionOverNetwork(): bool;
+    public static function allowsModification(): bool;
+    public static function allowsPrivateUse(): bool;
 
     //Conditions
-    public function requiresLicenseNotice(): boolean;
-    public function requiresStateChanges(): boolean;
-    public function requiresDisclosingSource(): boolean;
-    public function requriesSameLicense(): boolean;
+    public static function requiresLicenseNotice(): bool;
+    public static function requiresStateChanges(): bool;
+    public static function requiresDisclosingSource(): bool;
+    public static function requriesSameLicense(): bool;
 
     //Limitations
-    public function limitsLiability(): boolean;
-    public function limitsWarranty(): boolean;
-    public function limitsTrademarkUse(): boolean;
+    public static function limitsLiability(): bool;
+    public static function limitsWarranty(): bool;
+    public static function limitsTrademarkUse(): bool;
 }
