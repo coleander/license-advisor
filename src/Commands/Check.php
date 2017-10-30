@@ -29,7 +29,7 @@ final class Check extends Command
             ->setName(self::COMMAND_NAME)
             ->setDefinition(
                 [
-                    new InputOption('license', '', InputOption::VALUE_REQUIRED, 'Your package license', 'Copyright'),
+                    new InputOption('license', 'l', InputOption::VALUE_REQUIRED, 'Your package license', 'None'),
 
                 ]
             )
@@ -44,7 +44,11 @@ final class Check extends Command
 
         if (is_null($selectedLicense)) {
             $this->red($output, $input->getOption('license') . ' is an unsupported license.');
+            return;
         }
+
+        $output->writeln('Your license: ' . $selectedLicense::identifier());
+
 
         $hadErrors = false;
 
@@ -52,7 +56,7 @@ final class Check extends Command
             $license = LicenseManager::license($packageLicense);
             if (is_null($license)) {
                 $this->yellow($output, 'Unknown License: ' . $packageLicense);
-                break;
+                continue;
             }
 
             $compare = $selectedLicense->compare($license);

@@ -4,13 +4,13 @@ namespace LicenseAdvisor\Licenses;
 use LicenseAdvisor\Abstracts\License;
 
 /**
- * GPLv3
+ * Copyright
  */
-class GPL3 extends License
+class None extends License
 {
     public static function identifier():string
     {
-        return 'GPL-3.0';
+        return 'None';
     }
 
     //Permissions
@@ -38,29 +38,29 @@ class GPL3 extends License
     //Conditions
     public static function requiresLicenseNotice():bool
     {
-        return true;
+        return false;
     }
     public static function requiresStateChanges():bool
     {
-        return true;
+        return false;
     }
     public static function requiresDisclosingSource():bool
     {
-        return true;
+        return false;
     }
     public static function requriesSameLicense():bool
     {
-        return true;
+        return false;
     }
 
     //Limitations
     public static function limitsLiability():bool
     {
-        return true;
+        return false;
     }
     public static function limitsWarranty():bool
     {
-        return true;
+        return false;
     }
     public static function limitsTrademarkUse():bool
     {
