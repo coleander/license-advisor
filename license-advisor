@@ -4,7 +4,11 @@ if (!defined('PHP_VERSION_ID') || PHP_VERSION_ID < 70000 || PHP_VERSION_ID >= 70
     fwrite(STDERR, "PHP needs to be a minimum version of PHP 7.0.0 and maximum version of PHP 7.2.*.\n");
     exit(1);
 }
-require_once __DIR__.'/vendor/autoload.php';
+if (file_exists($a = __DIR__.'/../../autoload.php')) {
+    require_once $a;
+} else {
+    require_once __DIR__.'/vendor/autoload.php';
+}
 use LicenseAdvisor\Application;
 
 (new Application())->run();
